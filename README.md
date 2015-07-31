@@ -5,14 +5,13 @@ VRIGifConverterOperation - subclass of NSOperation and can be runned in NSOperat
 
 ##Params
 
-* path - movie path in local disk
-* finishPath - movie saving path
-* fps - frames per second, can't be more then video fps. Monosnap uses [1;15] values
-* quality - quiality of single image. int value from 1 to 100. Where 100 is source quality
-* size - the size of single frame in movie.
-Also movie can be trimmed with T1 and T2 params. Where T1 always less then T2. 0 is the start of the movie file and 1 is end of the file. For example : we got movie which length is 60 seconds. T1 = 0.5 and T2 = 1 will trimm the movie from 30 seconds to 60 seconds.
-* T1 - double value from 0 to 1. 
-* T2 - double value from 0 to 1
+* `path` - movie path in local disk
+* `finishPath` - movie saving path
+* `fps` - frames per second, can't be more then video fps. Monosnap uses [1;15] values
+* `quality` - quiality of single image. int value from 1 to 100. Where 100 is source quality
+* `size` - the size of single frame in movie. Also movie can be trimmed with T1 and T2 params. Where T1 always less then T2. 0 is the start of the movie file and 1 is end of the file. For example : we got movie which length is 60 seconds. T1 = 0.5 and T2 = 1 will trimm the movie from 30 seconds to 60 seconds.
+* `T1` - double value from 0 to 1. 
+* `T2` - double value from 0 to 1
 
 
 ##Example of use
