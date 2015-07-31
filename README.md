@@ -1,24 +1,19 @@
 ## obj-c
 This tiny class can convert .mov file into .gif with params.
 
-#Params
-NSURL* path; - movie path
+#Example of use
 
-NSURL* finishPath; - save path
+NSOperationQueue* queue = [NSOperationQueue new];
+VRIGifConverterOperation* op = [VRIGifConverterOperation new];
+op.path = @"video_path";
+op.finishPath = @"saving_path";
+op.fps = 15; // fps value from 1 to max movie fps
+op.quality = // gif quality from 1 to 100. Where 100 is source quality
+op.size = ...; // width and height of movie
+op.maxPixels = (int)size.width*(int)size.height;
+op.T1 = ... ; //trimmer start value. [0,1] double
+op.T2 = ... ; //trimmer finish value. [0,1] double
+[queue addOperation:op];
 
-int fps; - frames per seconds. Don't set it to 30 or more
-
-int quality; - quality from 1 to 100
-
-
-//trimming params
-
-double T1; - Start time
-
-double T2; - finish time
-
-
-
-NSSize size; - origin size of movie (width / height)
 
 
