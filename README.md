@@ -1,6 +1,4 @@
 ## obj-c
-#Movie to gif convertation
-
 This tiny class can convert .mov file into .gif with params.
 
 #Params
