@@ -1,5 +1,6 @@
 # GifConverter
 This tiny library provides a way to convert video file like .mov in .gif format. It is used in Monosnap application for OSX.
+
 VRIGifConverterOperation - subclass of NSOperation and can be runned in NSOperationQueue object.
 
 ##Params
