@@ -13,13 +13,8 @@
 @property  NSURL* finishPath;
 @property int fps;
 @property int quality;
-@property int maxPixels;
-@property id sender;
-@property BOOL hideAfterFinish;
 @property double T1;
 @property double T2;
 @property NSSize size;
-
-+(unsigned long long)getFirstImageSize:(NSURL*)urlPath;
 
 @end
