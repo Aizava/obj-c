@@ -75,7 +75,7 @@
                                               }
                                       };
     
-    NSString* filePath = [[MSSettingsManager instance] tmpDir];
+    NSString* filePath = [[MSSettingsManager instance] tmpDir]; // add your temp dir here
     filePath = [NSString stringWithFormat:@"%@/test.gif",filePath];
     
     NSFileManager* fm = [NSFileManager defaultManager];
@@ -150,7 +150,7 @@
     
     MSAppDelegate* app = (MSAppDelegate*)[NSApplication sharedApplication].delegate;
     
-    [app changeConvertingProgress:0];
+    [app changeConvertingProgress:0]; // notification about progress, can be deleted
     
     for (NSUInteger i = ind1; i <= ind2; i++) {
         NSOperationQueue* queue = [NSOperationQueue mainQueue];
@@ -166,10 +166,10 @@
         [op waitUntilFinished];
         
         double prog = 100 - (double)(ind2 - i)/(double)(ind2 - ind1 + 1)*100;
-        [app changeConvertingProgress:prog];
+        [app changeConvertingProgress:prog]; // notification about progress, can be deleted
     }
     
-    [app showProgressMessage:@"Finishing processing..."];
+    [app showProgressMessage:@"Finishing processing..."]; // notification about progress, can be deleted
     
     if (!CGImageDestinationFinalize(destination)) {
         NSLog(@"failed to convert video to gif");
@@ -177,25 +177,7 @@
     
     if (destination != NULL)
         CFRelease(destination);
-    [self completeSave];
-    [app finishUploadingProgress];
-}
-
--(void)completeSave
-{
-    if (finishPath) {
-        if ([[MSSettingsManager instance] saveAlways]) {
-            [[MSNotificationWindow instance] showTextMessage:NSLocalizedStringFromTable(@"MSSuccessfullySavedDefaultString", @"MSNotification", nil) withPath:[finishPath path]];
-            /******************** Analytics *********************/
-            [[MSAnalytics instance] imageSaveIsDefault:YES fromEditor:YES];
-            /******************** /Analytics *********************/
-        } else {
-            [[MSNotificationWindow instance] showTextMessage:NSLocalizedStringFromTable(@"MSSuccessfullySavedString", @"MSNotification", nil) withPath:[finishPath path]];
-            /******************** Analytics *********************/
-            [[MSAnalytics instance] imageSaveIsDefault:NO fromEditor:YES];
-            /******************** /Analytics *********************/
-        }
-    }
+    [app finishUploadingProgress]; // notification about progress, can be deleted
 }
 
 @end
